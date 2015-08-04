@@ -4,8 +4,6 @@ import com.google.inject.Provider;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
-import java.util.Date;
 import java.util.List;
 
 public class MyServiceImpl implements MyService {
@@ -21,11 +19,9 @@ public class MyServiceImpl implements MyService {
     @Override
     // @javax.transaction.Transactional is not supported yet. https://github.com/google/guice/issues/797
     @com.google.inject.persist.Transactional
-    public void save(Date ts) {
+    public void save(MyEntity e) {
         EntityManager em = emp.get();
-        MyEntity myEntity = new MyEntity();
-        myEntity.setTs(ts);
-        em.persist(myEntity);
+        em.persist(e);
     }
 
     @Override

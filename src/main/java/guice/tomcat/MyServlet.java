@@ -16,8 +16,9 @@ public class MyServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final Date date = new Date();
-        myService.save(date);
+        MyEntity myEntity = new MyEntity();
+        myEntity.setTs(new Date());
+        myService.save(myEntity);
 
         PrintWriter writer = resp.getWriter();
         writer.write("<html><body><ul>");

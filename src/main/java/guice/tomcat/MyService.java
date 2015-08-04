@@ -1,9 +1,8 @@
 package guice.tomcat;
 
-import java.util.Date;
 import java.util.List;
 
 public interface MyService {
-    void save(Date ts);
+    void save(MyEntity e);
     List<MyEntity> findAll();
 }
